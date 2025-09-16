@@ -27,6 +27,11 @@ def shuffle():
     random.shuffle(strList)
     y=''.join(strList)
     product.set(y)
+    # shuffle module seems to take a little more 
+    # effort by listing characters, shuffling, then 
+    # joining before output vs. sample which takes 
+    # a list and length and shuffles before joining, 
+    # cutting out one step it seems...
 
 def scramble():
     x=password.get()
