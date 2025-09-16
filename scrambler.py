@@ -20,19 +20,24 @@ password=StringVar()
 product=StringVar()
 charList='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*?'
 
-# set up function
-def scramble():
+# set up functions
+def shuffle():
     x=password.get()
     strList=list(x)
-    # random.shuffle(strList)
+    random.shuffle(strList)
+    y=''.join(strList)
+    product.set(y)
+
+def scramble():
+    x=password.get()
     shuffled=random.sample(charList, len(x))
-    # y=''.join(strList)
     y=''.join(shuffled)
     product.set(y)
 
 # set up window elements
-Entry(win, textvariable=password, width=20, font=('Courier', 25), relief=GROOVE).place(relx=.5, rely=.2, anchor=CENTER)
-Entry(win, textvariable=product, width=20, font=('Courier', 25), relief=GROOVE).place(relx=.5, rely=.8, anchor=CENTER)
-Button(win, width=10, text='SCRAMBLE IT!', command=scramble, relief=GROOVE, bg='orange').place(relx=.5, rely=.5, anchor=CENTER)
+Entry(win, textvariable=password, width=20, font=('Courier', 25), relief=GROOVE).place(relx=.5, rely=.3, anchor=CENTER)
+Entry(win, textvariable=product, width=20, font=('Courier', 25), relief=GROOVE).place(relx=.5, rely=.7, anchor=CENTER)
+Button(win, width=12, text='SHUFFLE IT!', command=shuffle, relief=GROOVE, bg='light green').place(relx=.4, rely=.5, anchor=CENTER)
+Button(win, width=12, text='SCRAMBLE IT!', command=scramble, relief=GROOVE, bg='orange').place(relx=.6, rely=.5, anchor=CENTER)
 
 win.mainloop()
