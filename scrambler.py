@@ -16,12 +16,16 @@ win.geometry('750x750')
 win.title('The Great Scrambler')
 
 # initialize vars
-password=''
-product=''
+password=StringVar()
+product=StringVar()
 
 # set up function
 def scramble():
-    print('hello')
+    x=password.get()
+    charList=list(x)
+    random.shuffle(charList)
+    y=''.join(charList)
+    product.set(y)
 
 # set up window elements
 Entry(win, textvariable=password, width=20, font=('Courier', 25), relief=GROOVE).place(relx=.5, rely=.2, anchor=CENTER)
