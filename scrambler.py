@@ -18,13 +18,16 @@ win.title('The Great Scrambler')
 # initialize vars
 password=StringVar()
 product=StringVar()
+charList='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*?'
 
 # set up function
 def scramble():
     x=password.get()
-    charList=list(x)
-    random.shuffle(charList)
-    y=''.join(charList)
+    strList=list(x)
+    # random.shuffle(strList)
+    shuffled=random.sample(charList, len(x))
+    # y=''.join(strList)
+    y=''.join(shuffled)
     product.set(y)
 
 # set up window elements
